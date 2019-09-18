@@ -6,7 +6,7 @@
 
   <% if enhanced_cart.length==0 %>
   <div class="alert alert-warning">
-    Your cart is empty, <span><a href="/">click here to shop!</a></span>
+    Your cart is empty, <%= link_to 'click here to shop!', :root %>
   </div>
   <% else %>
 
