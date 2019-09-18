@@ -1,4 +1,4 @@
-class AboutController < ApplicationController
+class AboutController < ActionController::Base
   def show 
   end
 end 
