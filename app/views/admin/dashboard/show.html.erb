@@ -1,4 +1,35 @@
 <h1>Admin Dashboard</h1>
 
-<h3 class=""><%= link_to 'Total Products', :admin_products %>: <%=@product_count %></h3>
-<h3 class=""><%= link_to 'Total Categories', :admin_categories %>: <%=@category_count %></h3> 
+<table class="table table-bordered">
+      <thead>
+        <tr>
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+          <h3>Total Products in Inventory</h3>
+          </td>
+          <td>
+          <h4><%=@product_count %></h4>
+          </td>
+          <td>
+            <h3><%= link_to 'Total Products', :admin_products, class: 'btn btn-info' %></h3>
+          </td>
+          </tr 
+          <tr>
+          <td>
+          <h3>Total Categories of Products</h3>
+          </td>
+          <td>
+          <h4><%=@category_count %></h4>
+          </td>
+          <td>
+            <h3><%= link_to 'Total Categories', :admin_categories, class: 'btn btn-info' %></h3>
+          </td>
+          </tr>
+      </tbody>
+    </table>

@@ -4,4 +4,7 @@ class Admin::SalesController < ApplicationController
     @sales = Sale.all
   end
 
+  def new
+  end
+
 end
