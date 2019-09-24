@@ -17,28 +17,28 @@ RSpec.describe User, type: :model do
     it "email is missing" do
       user = User.new(email: nil)
       expect(user).to be_invalid
-      expect(user.errors[:email]).to include("cannot be blank")
+      expect(user.errors[:email]).to include("can't be blank")
       user.email = 'test@test.com' # valid state
       user.valid?
-      expect(user.errors[:email]).not_to include("cannot be blank")
+      expect(user.errors[:email]).not_to include("can't be blank")
     end
 
     it "first name is missing" do
       user = User.new(first_name: nil)
       expect(user).to be_invalid
-      expect(user.errors[:first_name]).to include("cannot be blank")
+      expect(user.errors[:first_name]).to include("can't be blank")
       user.first_name = 'first_name' # valid state
       user.valid? 
-      expect(user.errors[:first_name]).not_to include("cannot be blank")
+      expect(user.errors[:first_name]).not_to include("can't be blank")
     end
 
     it "last name is missing" do
       user = User.new(last_name: nil)
       expect(user).to be_invalid
-      expect(user.errors[:last_name]).to include("cannot be blank")
+      expect(user.errors[:last_name]).to include("can't be blank")
       user.last_name = 'last_name' # valid state
       user.valid? 
-      expect(user.errors[:last_name]).not_to include("cannot be blank")
+      expect(user.errors[:last_name]).not_to include("can't be blank")
     end
 
     it "password donnot match" do

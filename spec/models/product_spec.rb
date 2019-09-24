@@ -18,11 +18,11 @@ RSpec.describe Product, type: :model do
       @product = Product.new
       @product.name = nil # invalid state
       @product.valid?
-      expect(@product.errors[:name]).to  include("cannot be blank")
+      expect(@product.errors[:name]).to  include("can't be blank")
 
       @product.name = 'test' # valid state
       @product.valid? 
-      expect(@product.errors[:name]).not_to  include("cannot be blank")
+      expect(@product.errors[:name]).not_to  include("can't be blank")
     end
 
     it "price_cents presence" do
@@ -33,18 +33,18 @@ RSpec.describe Product, type: :model do
 
       @product.price_cents = 12311 # valid state
       @product.valid? 
-      expect(@product.errors[:price_cents]).not_to  include("cannot be blank")
+      expect(@product.errors[:price_cents]).not_to  include("can't be blank")
     end
 
     it "quantity" do
       @product = Product.new
       @product.quantity = nil # invalid state
       @product.valid?
-      expect(@product.errors[:quantity]).to  include("cannot be blank")
+      expect(@product.errors[:quantity]).to  include("can't be blank")
 
       @product.quantity = 3 # valid state
       @product.valid? 
-      expect(@product.errors[:quantity]).not_to  include("cannot be blank")
+      expect(@product.errors[:quantity]).not_to  include("can't be blank")
     end
 
     it "has category_id" do
@@ -52,11 +52,11 @@ RSpec.describe Product, type: :model do
       @product = Product.new
       @product.category = nil # invalid state
       @product.valid?
-      expect(@product.errors[:category]).to  include("cannot be blank")
+      expect(@product.errors[:category]).to  include("can't be blank")
 
       @product.category = @cat # valid state
       @product.valid? 
-      expect(@product.errors[:category]).not_to  include("cannot be blank")
+      expect(@product.errors[:category]).not_to  include("can't be blank")
     end
   end
 end
