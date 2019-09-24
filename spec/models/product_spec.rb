@@ -36,5 +36,15 @@ RSpec.describe Product, type: :model do
       end
     end
 
+    describe 'Category validation' do
+      it 'is valid with a valid category' do
+        expect(subject).to be_valid
+      end
+      it 'is not valid without a valid category' do
+        subject.category = nil
+        expect(subject).to_not be_valid
+      end
+    end
+
   end
 end
