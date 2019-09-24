@@ -2,49 +2,61 @@ require 'rails_helper'
 
 RSpec.describe Product, type: :model do
   describe 'Validations' do
-    cat = Category.new(name:"meat")
-    subject {described_class.new(price_cents:100, name: 'Anything', quantity: 2, category: cat)}
-    describe 'Name validation' do 
-      it 'is valid with a valid name' do
-        subject.name = 'Anything'
-        expect(subject).to be_valid
-      end
-      it 'is not valid without a valid name' do
-        subject.name = nil
-        expect(subject).to_not be_valid
-      end
+
+    it "is valid" do
+      @product = Product.new
+      @cat = Category.new
+      @cat.name = 'Test'
+      @product.name = 'Test' # invalid state
+      @product.price_cents = 12311
+      @product.quantity = 3
+      @product.category = @cat
+      expect(@product.valid?).to be true
     end
 
-    describe 'Price validation' do
-      it 'is valid with a valid price' do
-        subject.price_cents=90
-        expect(subject).to be_valid
-      end
-      it 'is not valid without a valid price' do
-        subject.price_cents=nil
-        expect(subject).to_not be_valid
-      end
+    it "name presence" do
+      @product = Product.new
+      @product.name = nil # invalid state
+      @product.valid?
+      expect(@product.errors[:name]).to  include("cannot be blank")
+
+      @product.name = 'test' # valid state
+      @product.valid? 
+      expect(@product.errors[:name]).not_to  include("cannot be blank")
     end
 
-    describe 'Quantity validation' do
-      it 'is valid with a valid quantity' do
-        expect(subject).to be_valid
-      end
-      it 'is not valid without a valid quantity' do
-        subject.quantity = nil
-        expect(subject).to_not be_valid
-      end
+    it "price_cents presence" do
+      @product = Product.new
+      @product.price_cents = nil # invalid state
+      @product.valid?
+      expect(@product.errors[:price_cents]).to  include("is not a number")
+
+      @product.price_cents = 12311 # valid state
+      @product.valid? 
+      expect(@product.errors[:price_cents]).not_to  include("cannot be blank")
     end
 
-    describe 'Category validation' do
-      it 'is valid with a valid category' do
-        expect(subject).to be_valid
-      end
-      it 'is not valid without a valid category' do
-        subject.category = nil
-        expect(subject).to_not be_valid
-      end
+    it "quantity" do
+      @product = Product.new
+      @product.quantity = nil # invalid state
+      @product.valid?
+      expect(@product.errors[:quantity]).to  include("cannot be blank")
+
+      @product.quantity = 3 # valid state
+      @product.valid? 
+      expect(@product.errors[:quantity]).not_to  include("cannot be blank")
     end
 
+    it "has category_id" do
+      @cat = Category.new
+      @product = Product.new
+      @product.category = nil # invalid state
+      @product.valid?
+      expect(@product.errors[:category]).to  include("cannot be blank")
+
+      @product.category = @cat # valid state
+      @product.valid? 
+      expect(@product.errors[:category]).not_to  include("cannot be blank")
+    end
   end
 end
