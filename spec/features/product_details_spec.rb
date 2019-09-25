@@ -9,7 +9,7 @@ RSpec.feature "Visitor click one of the product partials and get to new page", t
       @category.products.create!(
         name:  Faker::Hipster.sentence(3),
         description: Faker::Hipster.paragraph(4),
-        image: open_asset('apparel1.jpg'),
+        image: 'https://jungleapplication.s3.us-east-2.amazonaws.com/apparel1.jpg',
         quantity: 10,
         price: 64.99
       )
