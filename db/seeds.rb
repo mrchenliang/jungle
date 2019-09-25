@@ -136,7 +136,4 @@ cat3.products.create!({
   price: 2_483.75
 })
 
-Users.new(:first_name => "Chen", :last_name => "Liang", :email => "cl.1995@hotmail.com", :password => "password").save
-
-
 puts "DONE!"
