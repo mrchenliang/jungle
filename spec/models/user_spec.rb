@@ -8,8 +8,8 @@ RSpec.describe User, type: :model do
         first_name: 'first_name',
         last_name: 'last_name',
         email: 'test2@test.com',
-        password: 'hogehoge',
-        password_confirmation: 'hogehoge'
+        password: 'testtest',
+        password_confirmation: 'testtest'
       )
       expect(user).to be_valid
     end
@@ -46,8 +46,8 @@ RSpec.describe User, type: :model do
         first_name: 'first_name',
         last_name: 'last_name',
         email: 'test2@test.com',
-        password: 'hogehoge',
-        password_confirmation: 'hoge'
+        password: 'testtest',
+        password_confirmation: 'test'
       )
       user.valid?
       expect(user.errors[:password_confirmation]).to be_present
@@ -100,12 +100,12 @@ RSpec.describe User, type: :model do
         first_name: 'first_name',
         last_name: 'last_name',
         email: 'test@test.com',
-        password: 'hogehoge',
-        password_confirmation: 'hogehoge'
+        password: 'testtest',
+        password_confirmation: 'testtest'
       )
       user.save
 
-      user = User.authenticate_with_credentials('test@test.com', 'hogehoge')
+      user = User.authenticate_with_credentials('test@test.com', 'testtest')
       expect(user).not_to be(nil)
     end
 
@@ -119,7 +119,7 @@ RSpec.describe User, type: :model do
       )
       user.save
 
-      user = User.authenticate_with_credentials('test@test.com', 'hogehoge3')
+      user = User.authenticate_with_credentials('test@test.com', 'test')
       expect(user).to be(nil)
     end
 
@@ -128,12 +128,12 @@ RSpec.describe User, type: :model do
         first_name: 'first_name',
         last_name: 'last_name',
         email: 'test@test.com',
-        password: 'hogehoge',
-        password_confirmation: 'hogehoge'
+        password: 'testtest',
+        password_confirmation: 'testtest'
       )
       user.save
 
-      user = User.authenticate_with_credentials('  test@test.com  ', 'hogehoge')
+      user = User.authenticate_with_credentials('  test@test.com  ', 'testtest')
       expect(user).not_to be(nil)
     end
 
@@ -142,12 +142,12 @@ RSpec.describe User, type: :model do
         first_name: 'first_name',
         last_name: 'last_name',
         email: 'test@test.com',
-        password: 'hogehoge',
-        password_confirmation: 'hogehoge'
+        password: 'testtest',
+        password_confirmation: 'testtest'
       )
       user.save
 
-      user = User.authenticate_with_credentials('tesT@tEst.com', 'hogehoge')
+      user = User.authenticate_with_credentials('tesT@tEst.com', 'testtest')
       expect(user).not_to be(nil)
     end
   end
