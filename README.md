@@ -7,8 +7,8 @@ A mini e-commerce application built with Rails 4.2 with Stripe payments built in
 - User feature of browsing items and by category and checking out with Stripe payment option
 
 ## Project Demonstration
-!["Ordering"](https://github.com/mrchenliang/tweeter/blob/master/docs/ordering.gif)
-!["Admin-Features"](https://github.com/mrchenliang/tweeter/blob/master/docs/creating-sale.gif)
+!["Ordering"](https://github.com/mrchenliang/jungle/blob/master/docs/ordering.gif)
+!["Admin-Features"](https://github.com/mrchenliang/jungle/blob/master/docs/creating-sale.gif)
 
 ## Dependencies
 
