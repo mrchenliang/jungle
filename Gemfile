@@ -49,6 +49,7 @@ group :development, :test do
   gem 'byebug'
   gem 'quiet_assets'
   gem 'dotenv-rails'
+  gem 'sqlite3', '1.4.1'
 end
 
 group :development do
