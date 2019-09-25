@@ -1,5 +1,6 @@
 class Admin::SalesController < ApplicationController
-
+  http_basic_authenticate_with name: ENV['STRIPE_ADMIN_USERNAME'], password: ENV['STRIPE_ADMIN_PASSWORD']
+  
   def index
     @sales = Sale.order(starts_on: :asc)
     @active_sale = Sale.active.first
